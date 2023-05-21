@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.TextView
 import android.widget.Toast
 import java.util.Calendar
 import java.util.Date
@@ -16,6 +17,9 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private val year = todayCal.get(Calendar.YEAR)
     private val month = todayCal.get(Calendar.MONTH)
     private val day = todayCal.get(Calendar.DAY_OF_MONTH)
+    private lateinit var dateYear: TextView
+    private lateinit var dateMonth: TextView
+    private lateinit var dateDay: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +29,10 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     private fun init() {
         val bDayButton : Button = findViewById(R.id.bdayButton)
+        dateYear = findViewById(R.id.dateYear)
+        dateMonth = findViewById(R.id.dateMonth)
+        dateDay = findViewById(R.id.dateDays)
+
         bDayButton.setOnClickListener(View.OnClickListener {
             createDatePicker()
         })
@@ -41,6 +49,10 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         var passedYear =  year - selectedYear
         var passedMonth = month - selectedMonth
         var passedDay = day - selectedDayOfMonth
+
+        dateYear.text = passedYear.toString()
+        dateMonth.text = passedMonth.toString()
+        dateDay.text = passedDay.toString()
 
         Toast.makeText(this, "Your are $passedYear years, $passedMonth months, $passedDay days old", Toast.LENGTH_SHORT).show()
     }
