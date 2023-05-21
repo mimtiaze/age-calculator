@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Age calculator</string>
     <string name="heading">Welcome to age calculator</string>
-    <string name="select_your_birthdate">Select your birthdate</string>
+    <string name="select_your_birthdate">Select your birth date</string>
 </resources>
